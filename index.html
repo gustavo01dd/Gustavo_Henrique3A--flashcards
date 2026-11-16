@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flashcards de mito ou verdade: mitos e verdades da tecnologia.">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Confere Aí - Mitos e Verdades da Tecnologia</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <h1>Confere Aí</h1>
+        <nav aria-label="Menu principal">
+            <a href="#" class="cabecalho-link">Início</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="titulo-principal">Mito ou verdade? Tecnologia no dia a dia</h2>
+        <p class="subtitulo">Clique (ou use Enter) em um cartão para virar e descobrir a resposta.</p>
+
+        <!-- Placar: mostra quantos cartões já foram virados -->
+        <div class="placar" aria-live="polite">
+            <p>Cartões virados: <strong><span id="contador">0</span> de <span id="total">0</span></strong></p>
+            <p class="mensagem-final" id="mensagem-final"></p>
+        </div>
+
+        <div class="controles">
+            <button type="button" class="botao" id="btnEmbaralhar">🔀 Embaralhar</button>
+            <button type="button" class="botao" id="btnReiniciar">↺ Desvirar todos</button>
+        </div>
+
+        <!-- Os cartões são criados pelo script.js -->
+        <section class="grade-cartoes" id="cartoes" aria-label="Cartões de mito ou verdade"></section>
+
+        <noscript>
+            <p class="aviso">Ative o JavaScript do navegador para ver os cartões.</p>
+        </noscript>
+    </main>
+
+    <footer>
+        <p>Projeto feito por Gustavo Henrique – 3A</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

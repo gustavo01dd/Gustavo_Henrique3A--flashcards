@@ -1,0 +1,244 @@
+/* ===== CORES DO PROJETO ===== */
+:root {
+    --cor-principal: #7e3e1c;
+    --cor-destaque: #f2a65a;
+    --cor-fundo: #f5f2f2;
+    --cor-mito: #b3261e;
+    --cor-verdade: #1e7e34;
+    --cor-foco: #0b57d0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    background-color: var(--cor-fundo);
+}
+
+/* ===== CABEÇALHO E RODAPÉ ===== */
+.cabecalho {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--cor-principal);
+}
+
+h1 {
+    color: #fff;
+    font-size: 24px;
+}
+
+.cabecalho-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cabecalho-link:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: var(--cor-principal);
+    padding: 15px 25px;
+    color: #fff;
+    text-align: center;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 30px 20px 40px;
+}
+
+.titulo-principal {
+    color: var(--cor-principal);
+    font-size: 26px;
+    text-align: center;
+}
+
+.subtitulo {
+    color: #555;
+    text-align: center;
+}
+
+.placar {
+    text-align: center;
+    min-height: 48px;
+}
+
+.mensagem-final {
+    margin-top: 6px;
+    font-weight: bold;
+    color: var(--cor-verdade);
+}
+
+.aviso {
+    color: var(--cor-mito);
+    font-weight: bold;
+}
+
+/* ===== BOTÕES ===== */
+.controles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.botao {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 16px;
+    color: #fff;
+    background-color: var(--cor-principal);
+    cursor: pointer;
+}
+
+.botao:hover {
+    filter: brightness(1.2);
+}
+
+.botao:focus-visible,
+.cartao:focus-visible {
+    outline: 4px solid var(--cor-foco);
+    outline-offset: 4px;
+}
+
+.cabecalho-link:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+/* ===== CARTÕES (virada 3D) ===== */
+.grade-cartoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 10px;
+}
+
+.cartao {
+    width: 260px;
+    height: 340px;
+    padding: 0;
+    border: none;
+    border-radius: 12px;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.cartao-interno {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.cartao.virado .cartao-interno {
+    transform: rotateY(180deg);
+}
+
+.cartao-frente,
+.cartao-verso {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.cartao-frente {
+    border-top: 8px solid var(--cor-destaque);
+}
+
+.cartao-verso {
+    transform: rotateY(180deg);
+    border-top: 8px solid var(--cor-principal);
+}
+
+.cartao-emoji {
+    font-size: 64px;
+    line-height: 1;
+}
+
+.cartao-texto {
+    font-size: 17px;
+    line-height: 1.4;
+    color: #222;
+}
+
+.cartao-verso .cartao-texto {
+    font-size: 15px;
+}
+
+.cartao-dica {
+    font-size: 13px;
+    color: #666;
+}
+
+.selo {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.selo-mito {
+    background-color: var(--cor-mito);
+}
+
+.selo-verdade {
+    background-color: var(--cor-verdade);
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 600px) {
+    .titulo-principal {
+        font-size: 22px;
+    }
+
+    .cartao {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+/* Quem prefere menos movimento não vê a animação */
+@media (prefers-reduced-motion: reduce) {
+    .cartao-interno {
+        transition: none;
+    }
+}
